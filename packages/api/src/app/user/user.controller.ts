@@ -3,7 +3,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { UserSession } from '../shared/framework/user.decorator';
 import { GetMyProfileCommand } from './usecases/get-my-profile/get-my-profile.dto';
 import { GetMyProfileUsecase } from './usecases/get-my-profile/get-my-profile.usecase';
-import { IJwtPayload } from '@nest-starter/shared';
+import { IJwtPayload, IUserEntity } from '@nest-starter/shared';
 
 @UseInterceptors(ClassSerializerInterceptor)
 @Controller('/users')
@@ -16,7 +16,7 @@ export class UserController {
   }
 
   @Get('/me')
-  async getMyUserProfile(@UserSession() user: IJwtPayload) {
+  async getMyUserProfile(@UserSession() user: IJwtPayload): Promise<IUserEntity> {
     const command = GetMyProfileCommand.create({
       userId: user._id
     });

@@ -16,36 +16,7 @@ const userSchema = new Schema({
     valid: Schema.Types.Boolean,
     lastUsed: Schema.Types.Date
   }],
-  password: Schema.Types.String,
-  backofficeUser: {
-    type: Schema.Types.Boolean,
-    default: false
-  },
-
-  bio: Schema.Types.String,
-  raw: Schema.Types.Mixed,
-  location: Schema.Types.String,
-  blog: Schema.Types.String,
-  metadata: {
-    company: Schema.Types.String,
-    githubProfile: Schema.Types.String,
-    githubFollowers: Schema.Types.Number,
-    githubFollowing: Schema.Types.Number,
-    githubPublicRepos: Schema.Types.Number,
-    hireable: Schema.Types.String
-  },
-  starredRepos: [{
-    name: Schema.Types.String,
-    login: Schema.Types.String,
-    url: Schema.Types.String,
-    logo: Schema.Types.String,
-    description: Schema.Types.String,
-    stars: Schema.Types.Number,
-    subscribed: {
-      type: Schema.Types.Boolean,
-      default: false
-    }
-  }]
+  password: Schema.Types.String
 }, schemaOptions);
 
 export interface IUserDocument extends UserEntity, Document {

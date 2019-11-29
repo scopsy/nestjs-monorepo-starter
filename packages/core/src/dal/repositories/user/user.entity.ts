@@ -22,5 +22,5 @@ export class UserEntity {
 
   @Exclude({ toPlainOnly: true })
   password?: string;
-  createdAt?: string;
+  createdAt: string;
 }

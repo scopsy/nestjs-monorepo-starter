@@ -1,6 +1,5 @@
 export class IUserEntity {
   _id: string;
-  id: string;
   firstName: string;
   lastName: string;
   email: string;
