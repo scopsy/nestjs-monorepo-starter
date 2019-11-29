@@ -1,0 +1,26 @@
+{
+  "name": "@nest-starter/shared",
+  "version": "1.1.70",
+  "description": "",
+  "scripts": {
+    "afterinstall": "npm run build",
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
+    "start:dev": "npm run build:watch",
+    "test": "",
+    "test:watch": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "class-transformer": "^0.2.0",
+    "class-validator": "^0.9.1",
+    "mixpanel": "^0.10.2",
+    "typescript": "^3.1.6"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.24"
+  }
+}

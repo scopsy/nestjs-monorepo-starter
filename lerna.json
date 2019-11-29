@@ -1,0 +1,14 @@
+{
+  "npmClient": "yarn",
+  "packages": [
+    "packages/*"
+  ],
+  "useWorkspaces": true,
+  "version": "1.2.5",
+  "command": {
+    "version": {
+      "allowBranch": "master",
+      "message": "chore(release): publish %s"
+    }
+  }
+}

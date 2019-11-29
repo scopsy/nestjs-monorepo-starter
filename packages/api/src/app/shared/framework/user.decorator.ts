@@ -1,0 +1,17 @@
+import { createParamDecorator, UnauthorizedException } from '@nestjs/common';
+import * as jwt from 'jsonwebtoken';
+
+export const UserSession = createParamDecorator((data, req) => {
+  if (req.user) return req.user;
+
+  if (req.headers) {
+    if (req.headers.authorization) {
+      const tokenParts = req.headers.authorization.split(' ');
+      if (tokenParts[0] !== 'Bearer') throw new UnauthorizedException('bad_token');
+      if (!tokenParts[1]) throw new UnauthorizedException('bad_token');
+
+      const user = jwt.decode(tokenParts[1]);
+      return user;
+    }
+  }
+});

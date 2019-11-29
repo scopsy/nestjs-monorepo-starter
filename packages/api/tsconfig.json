@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node",
+      "mocha",
+      "chai",
+      "sinon"
+    ],
+    "target": "es2016",
+    "allowJs": false
+  }
+}

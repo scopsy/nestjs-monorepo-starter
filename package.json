@@ -1,0 +1,25 @@
+{
+  "name": "nest-starter",
+  "private": true,
+  "scripts": {
+    "clean": "lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "test": " cross-env CI=true lerna run test:watch --stream --parallel",
+    "start": "cross-env TZ=UTC lerna run --parallel start:dev",
+    "start:server": "cross-env lerna run --parallel --ignore @nest-starter/client start:dev",
+    "start:server:prod": "lerna run --parallel --ignore @nest-starter/client start",
+    "build": "node --max-old-space-size=1900 ./node_modules/.bin/lerna run build",
+    "release:patch": "lerna version patch"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "lerna": "^3.5.1",
+    "rimraf": "^2.6.2",
+    "typescript": "^3.2.1",
+    "husky": "^2.4.1",
+    "cross-env": "^6.0.3"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
