@@ -7,6 +7,7 @@ import { SharedModule } from './app/shared/shared.module';
 import { UserModule } from './app/user/user.module';
 import { AuthModule } from './app/auth/auth.module';
 import { TestingModule } from './app/testing/testing.module';
+import { HealthModule } from './app/health/health.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { TestingModule } from './app/testing/testing.module';
     TestingModule,
     SharedModule,
     UserModule,
-    AuthModule
+    AuthModule,
+    HealthModule
   ],
   controllers: [AppController],
   providers: [

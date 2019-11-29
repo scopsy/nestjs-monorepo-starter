@@ -7,13 +7,6 @@ import {
   AnalyticsService,
   MailService
 } from '@nest-starter/core';
-import {
-  DNSHealthIndicator,
-  MongooseHealthIndicator,
-  TerminusModule,
-  TerminusModuleOptions
-} from '@nestjs/terminus';
-import { version } from '../../../package.json';
 
 const DAL_MODELS = [
   UserRepository
@@ -47,32 +40,8 @@ const PROVIDERS = [{
   MailService
 ];
 
-const getTerminusOptions = (
-  db: MongooseHealthIndicator,
-  dns: DNSHealthIndicator
-): TerminusModuleOptions => ({
-  endpoints: [
-    {
-      url: '/health-check',
-      healthIndicators: [
-        () => dns.pingCheck('google', 'https://google.com'),
-        async () => {
-          return {
-            version
-          } as any;
-        }
-      ]
-    }
-  ]
-});
-
 @Module({
-  imports: [
-    TerminusModule.forRootAsync({
-      inject: [MongooseHealthIndicator, DNSHealthIndicator],
-      useFactory: (db: MongooseHealthIndicator, dns: DNSHealthIndicator) => getTerminusOptions(db, dns),
-    })
-  ],
+  imports: [],
   providers: [...PROVIDERS],
   exports: [...PROVIDERS]
 })

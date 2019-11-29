@@ -12,6 +12,10 @@ export class TestingController {
 
   }
 
+  /**
+   * Used for seeding data for client e2e tests,
+   * Currently just creates a new user session and returns signed JWT
+   */
   @Post('/seed')
   async seedData(@Body() body: SeedDataBodyDto): Promise<ISeedDataResponseDto> {
     if (process.env.NODE_ENV !== 'test') throw new NotFoundException();
