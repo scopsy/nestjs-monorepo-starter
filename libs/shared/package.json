@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "afterinstall": "npm run build",
-    "build": "tsc -p tsconfig.build.json",
-    "build:watch": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
+    "build": "node_modules/.bin/tsc -p tsconfig.build.json",
+    "build:watch": "node_modules/.bin/tsc -p tsconfig.build.json -w --preserveWatchOutput",
     "start:dev": "npm run build:watch",
     "test": "",
     "test:watch": ""

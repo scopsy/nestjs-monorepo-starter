@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig.json",
+  "extends": "apps/api/tsconfig.json",
   "compilerOptions": {
     "types": ["mocha", "node"]
   }

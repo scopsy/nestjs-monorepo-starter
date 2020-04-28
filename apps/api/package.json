@@ -5,7 +5,7 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "build": "node --max-old-space-size=1500 ./node_modules/.bin/tsc -p tsconfig.build.json",
+    "build": "node --max-old-space-size=1500 node_modules/.bin/tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "TZ=UTC ts-node src/main.ts",
     "start:dev": "cross-env TZ=UTC nodemon",

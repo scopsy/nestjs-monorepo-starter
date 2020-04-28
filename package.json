@@ -4,7 +4,7 @@
   "scripts": {
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
-    "test": " cross-env CI=true lerna run test:watch --stream --parallel",
+    "test": "cross-env CI=true lerna run test:watch --stream --parallel",
     "start": "cross-env TZ=UTC lerna run --parallel start:dev",
     "start:server": "cross-env lerna run --parallel --ignore @nest-starter/client start:dev",
     "start:server:prod": "lerna run --parallel --ignore @nest-starter/client start",
@@ -21,6 +21,7 @@
     "cross-env": "^7.0.2"
   },
   "workspaces": [
-    "packages/*"
+    "apps/*",
+    "libs/*"
   ]
 }
