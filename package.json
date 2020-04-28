@@ -12,12 +12,13 @@
     "release:patch": "lerna version patch"
   },
   "devDependencies": {
+    "prettier": "^2.0.5",
     "@types/node": "^10.12.12",
-    "lerna": "^3.5.1",
-    "rimraf": "^2.6.2",
-    "typescript": "^3.2.1",
-    "husky": "^2.4.1",
-    "cross-env": "^6.0.3"
+    "lerna": "^3.20.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3",
+    "husky": "^4.2.5",
+    "cross-env": "^7.0.2"
   },
   "workspaces": [
     "packages/*"

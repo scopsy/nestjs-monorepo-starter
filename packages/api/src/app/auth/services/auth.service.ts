@@ -5,7 +5,7 @@ import {
   UserRepository,
   AnalyticsService
 } from '@nest-starter/core';
-import { AuthProviderEnum, IJwtPayload, MemberRoleEnum } from '@nest-starter/shared';
+import { AuthProviderEnum, IJwtPayload } from '@nest-starter/shared';
 import { CreateUserCommand } from '../../user/usecases/create-user/create-user.dto';
 import { CreateUser } from '../../user/usecases/create-user/create-user.usecase';
 import { QueueService } from '@nest-starter/core';
@@ -63,7 +63,7 @@ export class AuthService {
   }
 
   async getSignedToken(user: UserEntity): Promise<string> {
-    const roles = [MemberRoleEnum.USER];
+    const roles = ['user'];
 
     return this.jwtService.sign({
       _id: user._id,

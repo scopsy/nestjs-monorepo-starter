@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { IJwtPayload, MemberRoleEnum } from '@nest-starter/shared';
+import { IJwtPayload } from '@nest-starter/shared';
 import * as jwt from 'jsonwebtoken';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class RolesGuard implements CanActivate {
   ) {}
 
   canActivate(context: ExecutionContext): boolean {
-    const roles = this.reflector.get<MemberRoleEnum[]>('roles', context.getHandler());
+    const roles = this.reflector.get<string[]>('roles', context.getHandler());
     if (!roles) {
       return true;
     }
