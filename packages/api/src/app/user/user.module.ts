@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { SharedModule } from '../shared/shared.module';
 import { USE_CASES } from './usecases';
 import { UserController } from './user.controller';
+import { UserResolver } from './user.resolver';
 
 @Module({
   imports: [
@@ -11,10 +12,12 @@ import { UserController } from './user.controller';
     UserController
   ],
   providers: [
-    ...USE_CASES
+    ...USE_CASES,
+    UserResolver
   ],
   exports: [
-    ...USE_CASES
+    ...USE_CASES,
+    UserResolver
   ]
 })
 export class UserModule {

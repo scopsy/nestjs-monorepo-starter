@@ -8,9 +8,14 @@ import { UserModule } from './app/user/user.module';
 import { AuthModule } from './app/auth/auth.module';
 import { TestingModule } from './app/testing/testing.module';
 import { HealthModule } from './app/health/health.module';
+import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
 
 @Module({
   imports: [
+    GraphQLModule.forRoot({
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    }),
     SharedModule,
     TestingModule,
     SharedModule,
