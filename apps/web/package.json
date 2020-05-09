@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start:dev": "next dev --port=4200",
+    "precommit": "lint-staged",
     "build": "next build",
     "start": "next start"
   },
@@ -11,5 +12,12 @@
     "next": "9.3.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["yarn lint", "prettier --ignore-path .eslintignore --write"],
+    "{*.json,.{babelrc,eslintrc,prettierrc,stylelintrc}}": [
+      "prettier --ignore-path .eslintignore --parser json --write"
+    ],
+    "*.{html,md,yml}": ["prettier --ignore-path .eslintignore --single-quote --write"]
   }
 }
