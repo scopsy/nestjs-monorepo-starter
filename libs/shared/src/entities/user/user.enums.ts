@@ -1,8 +1,8 @@
 export enum AuthProviderEnum {
   GOOGLE = 'google',
-  GITHUB = 'github'
+  GITHUB = 'github',
 }
 
 export enum UserRoleEnum {
-  USER = 'user'
+  USER = 'user',
 }

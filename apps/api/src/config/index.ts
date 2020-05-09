@@ -1,7 +1,8 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
 import * as envalid from 'envalid';
 import { str, email, json, url, port } from 'envalid';
+
+dotenv.config();
 
 let path;
 switch (process.env.NODE_ENV) {
@@ -24,10 +25,10 @@ if (error) throw error;
 envalid.cleanEnv(process.env, {
   NODE_ENV: str({
     choices: ['dev', 'test', 'prod', 'ci'],
-    default: 'dev'
+    default: 'dev',
   }),
   PORT: port(),
   FRONT_BASE_URL: url(),
   JWT_SECRET: str(),
-  MONGO_URL: str()
+  MONGO_URL: str(),
 });

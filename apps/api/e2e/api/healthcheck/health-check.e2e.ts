@@ -10,8 +10,7 @@ describe('Health-check', () => {
 
   describe('/health-check (GET)', () => {
     it('should correctly return a health check', async () => {
-      const { body } = await session.testAgent
-        .get('/health-check');
+      const { body } = await session.testAgent.get('/health-check');
 
       expect(body.status).to.equal('ok');
     });

@@ -1,19 +1,22 @@
 import * as sgApi from '@sendgrid/mail';
 
-export type IEmailRecipient = string | { name?: string; email: string; };
+export type IEmailRecipient = string | { name?: string; email: string };
 
 export interface ISendMail {
   to: IEmailRecipient | IEmailRecipient[];
-  from: IEmailRecipient | IEmailRecipient;
+  from: IEmailRecipient | IEmailRecipient[];
   subject?: string;
   text?: string;
   html?: string;
   templateId?: string;
-  params?: any;
+  params?: {
+    [key: string]: string;
+  };
 }
 
 export class MailService {
   private sendgrid = sgApi;
+
   constructor() {
     this.sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
     this.sendgrid.setSubstitutionWrappers('{{', '}}');
@@ -31,9 +34,9 @@ export class MailService {
       html: mail.html,
       templateId: mail.templateId,
       substitutions: mail.params,
-      dynamic_template_data: mail.params
+      dynamic_template_data: mail.params,
     };
 
-    await this.sendgrid.send(mailObject as any, false);
+    await this.sendgrid.send(mailObject as never, false);
   }
 }

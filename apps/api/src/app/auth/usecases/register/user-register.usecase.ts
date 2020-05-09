@@ -1,19 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { UserRepository } from '@nest-starter/core';
+import * as bcrypt from 'bcrypt';
 import { AuthService } from '../../services/auth.service';
 import { UserRegisterCommand } from './user-register.command';
-import { UserRepository } from '@nest-starter/core';
 import { normalizeEmail } from '../../../shared/helpers/email-normalization.service';
 import { ApiException } from '../../../shared/exceptions/api.exception';
-import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserRegister {
-  constructor(
-    private authService: AuthService,
-    private userRepository: UserRepository
-  ) {
-
-  }
+  constructor(private authService: AuthService, private userRepository: UserRepository) {}
 
   async execute(command: UserRegisterCommand) {
     const email = normalizeEmail(command.email);
@@ -25,7 +20,7 @@ export class UserRegister {
       email,
       firstName: command.firstName.toLowerCase(),
       lastName: command.lastName.toLowerCase(),
-      password: passwordHash
+      password: passwordHash,
     });
 
     return await this.authService.getSignedToken(user);

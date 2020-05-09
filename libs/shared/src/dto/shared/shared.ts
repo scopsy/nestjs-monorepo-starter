@@ -1,4 +1,3 @@
-
 export interface ISuccessResponseDto {
   success: boolean;
 }

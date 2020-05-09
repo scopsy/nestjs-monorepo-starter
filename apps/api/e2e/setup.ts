@@ -1,6 +1,6 @@
 import { DalService, testServer } from '@nest-starter/core';
-import { bootstrap } from '../src/bootstrap';
 import * as sinon from 'sinon';
+import { bootstrap } from '../src/bootstrap';
 
 const dalService = new DalService();
 before(async () => {

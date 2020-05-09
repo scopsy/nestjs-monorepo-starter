@@ -1,6 +1,6 @@
 export const schemaOptions = {
-    timestamps: true,
-    toJSON: {
-        virtuals: true
-    }
+  timestamps: true,
+  toJSON: {
+    virtuals: true,
+  },
 };

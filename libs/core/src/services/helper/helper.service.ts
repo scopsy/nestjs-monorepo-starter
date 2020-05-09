@@ -11,7 +11,7 @@ export function capitalize(text: string) {
 }
 
 export function getFileExtensionFromPath(filePath: string): string {
-  const regexp = /\.([0-9a-z]+)(?:[\?#]|$)/i;
+  const regexp = /\.([0-9a-z]+)(?:[?#]|$)/i;
   const extension = filePath.match(regexp);
 
   return extension && extension[1];

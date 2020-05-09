@@ -3,14 +3,12 @@ import * as mongoose from 'mongoose';
 
 export class DalService {
   connection: Connection;
-  constructor() {
-  }
 
   async connect(url: string, config: ConnectionOptions = {}) {
     const instance = await mongoose.connect(url, {
       ...config,
       autoReconnect: true,
-      useCreateIndex: true
+      useCreateIndex: true,
     });
 
     this.connection = instance.connection;
@@ -27,7 +25,7 @@ export class DalService {
   }
 
   async destroy() {
-    if (process.env['NODE_ENV'] !== 'test') throw new Error('Allowed only in test mode');
+    if (process.env.NODE_ENV !== 'test') throw new Error('Allowed only in test mode');
 
     await mongoose.connection.dropDatabase();
   }

@@ -2,21 +2,21 @@ const PLUS_ONLY = /\+.*$/;
 const PLUS_AND_DOT = /\.|\+.*$/g;
 const normalizeableProviders = {
   'gmail.com': {
-    cut: PLUS_AND_DOT
+    cut: PLUS_AND_DOT,
   },
   'googlemail.com': {
     cut: PLUS_AND_DOT,
-    aliasOf: 'gmail.com'
+    aliasOf: 'gmail.com',
   },
   'hotmail.com': {
-    cut: PLUS_ONLY
+    cut: PLUS_ONLY,
   },
   'live.com': {
-    cut: PLUS_AND_DOT
+    cut: PLUS_AND_DOT,
   },
   'outlook.com': {
-    cut: PLUS_ONLY
-  }
+    cut: PLUS_ONLY,
+  },
 };
 
 export function normalizeEmail(email: string): string {
@@ -44,5 +44,5 @@ export function normalizeEmail(email: string): string {
     }
   }
 
-  return username + '@' + domain;
+  return `${username}@${domain}`;
 }

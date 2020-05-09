@@ -5,6 +5,7 @@ import { UserEntity } from '../../dal/repositories/user';
 
 export class AnalyticsService {
   private mixpanel: Mixpanel;
+
   async initialize() {
     if (process.env.MIXPANEL_TOKEN) {
       this.mixpanel = MixpanelInstance.init(process.env.MIXPANEL_TOKEN);
@@ -23,9 +24,9 @@ export class AnalyticsService {
     this.mixpanel.people.set(distinctId, {
       $first_name: user.firstName,
       $last_name: user.lastName,
-      $created: user['createdAt'] || new Date(),
+      $created: user.createdAt || new Date(),
       $email: user.email,
-      userId: user._id
+      userId: user._id,
     });
   }
 
@@ -40,11 +41,11 @@ export class AnalyticsService {
 
     this.mixpanel.track(name, {
       distinct_id: userId,
-      ...data
+      ...data,
     });
   }
 
   private get analyticsEnabled() {
-    return (process.env.NODE_ENV !== 'test' && this.mixpanel);
+    return process.env.NODE_ENV !== 'test' && this.mixpanel;
   }
 }

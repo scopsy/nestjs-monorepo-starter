@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { SeedDataCommand } from './seed-data.command';
 import { UserSession } from '@nest-starter/core';
+import { SeedDataCommand } from './seed-data.command';
 
 @Injectable()
 export class SeedData {
@@ -11,7 +11,7 @@ export class SeedData {
 
     return {
       token: userSession.token,
-      user: userSession.user
+      user: userSession.user,
     };
   }
 }

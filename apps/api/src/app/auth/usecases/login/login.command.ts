@@ -1,5 +1,5 @@
-import { CommandHelper } from '../../../shared/commands/command.helper';
 import { IsDefined, IsEmail, IsNotEmpty } from 'class-validator';
+import { CommandHelper } from '../../../shared/commands/command.helper';
 
 export class LoginCommand {
   static create(data: LoginCommand) {

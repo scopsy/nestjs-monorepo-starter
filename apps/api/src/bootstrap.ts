@@ -3,8 +3,8 @@ import './config';
 import { INestApplication, ValidationPipe, Logger } from '@nestjs/common';
 import * as passport from 'passport';
 import * as compression from 'compression';
-import { NestFactory } from '@nestjs/core';
-import { Reflector } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
+
 import * as Sentry from '@sentry/node';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
@@ -15,7 +15,7 @@ import { RolesGuard } from './app/auth/framework/roles.guard';
 if (process.env.SENTRY_DSN && process.env.NODE_ENV === 'prod') {
   Sentry.init({
     dsn: process.env.SENTRY_DSN,
-    environment: process.env.NODE_ENV
+    environment: process.env.NODE_ENV,
   });
 }
 
@@ -23,21 +23,21 @@ export async function bootstrap(): Promise<INestApplication> {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: process.env.NODE_ENV === 'dev' ? '*' : [
-      process.env.FRONT_BASE_URL
-    ],
+    origin: process.env.NODE_ENV === 'dev' ? '*' : [process.env.FRONT_BASE_URL],
     preflightContinue: false,
     allowedHeaders: ['Content-Type', 'Authorization'],
-    methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+    methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   });
 
   app.setGlobalPrefix('v1');
 
   app.use(passport.initialize());
 
-  app.useGlobalPipes(new ValidationPipe({
-    transform: true
-  }));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+    })
+  );
 
   app.useGlobalInterceptors(new ResponseInterceptor());
   app.useGlobalGuards(new RolesGuard(app.get(Reflector)));

@@ -1,4 +1,3 @@
-
 export function escapeRegExp(text: string): string {
   if (!text) return text;
 

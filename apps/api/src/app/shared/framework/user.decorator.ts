@@ -14,4 +14,6 @@ export const UserSession = createParamDecorator((data, req) => {
       return user;
     }
   }
+
+  return null;
 });

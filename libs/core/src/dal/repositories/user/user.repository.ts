@@ -10,20 +10,23 @@ export class UserRepository extends BaseRepository<UserEntity> {
 
   async findByEmail(email: string): Promise<UserEntity> {
     return this.findOne({
-      email
+      email,
     });
   }
 
   async findByLoginProvider(profileId: string, provider: AuthProviderEnum): Promise<UserEntity> {
     return this.findOne({
       'tokens.providerId': profileId,
-      'tokens.provider': provider
+      'tokens.provider': provider,
     });
   }
 
   async userExists(userId: string) {
-    return !!await this.findOne({
-      _id: userId
-    }, '_id');
+    return !!(await this.findOne(
+      {
+        _id: userId,
+      },
+      '_id'
+    ));
   }
 }

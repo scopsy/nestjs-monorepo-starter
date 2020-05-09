@@ -1,14 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import {
-  UserEntity,
-  UserRepository,
-  AnalyticsService
-} from '@nest-starter/core';
+import { UserEntity, UserRepository, AnalyticsService, QueueService } from '@nest-starter/core';
 import { AuthProviderEnum, IJwtPayload } from '@nest-starter/shared';
+
 import { CreateUserCommand } from '../../user/usecases/create-user/create-user.dto';
 import { CreateUser } from '../../user/usecases/create-user/create-user.usecase';
-import { QueueService } from '@nest-starter/core';
 
 @Injectable()
 export class AuthService {
@@ -20,23 +16,31 @@ export class AuthService {
     private analyticsService: AnalyticsService
   ) {}
 
-  async authenticate(authProvider: AuthProviderEnum, accessToken: string, refreshToken: string, profile: any, distinctId: string) {
+  async authenticate(
+    authProvider: AuthProviderEnum,
+    accessToken: string,
+    refreshToken: string,
+    profile: { name: string; login: string; email: string; avatar_url: string; id: string },
+    distinctId: string
+  ) {
     let user = await this.userRepository.findByLoginProvider(profile.id, authProvider);
     let newUser = false;
 
     if (!user) {
-      user = await this.createUserUsecase.execute(CreateUserCommand.create({
-        picture: profile.avatar_url,
-        email: profile.email,
-        lastName: profile.name ? profile.name.split(' ').slice(-1).join(' ') : null,
-        firstName: profile.name ? profile.name.split(' ').slice(0, -1).join(' ') : profile.login,
-        auth: {
-          profileId: profile.id,
-          provider: authProvider,
-          accessToken,
-          refreshToken
-        }
-      }));
+      user = await this.createUserUsecase.execute(
+        CreateUserCommand.create({
+          picture: profile.avatar_url,
+          email: profile.email,
+          lastName: profile.name ? profile.name.split(' ').slice(-1).join(' ') : null,
+          firstName: profile.name ? profile.name.split(' ').slice(0, -1).join(' ') : profile.login,
+          auth: {
+            profileId: profile.id,
+            provider: authProvider,
+            accessToken,
+            refreshToken,
+          },
+        })
+      );
       newUser = true;
 
       this.analyticsService.upsertUser(user, distinctId || user._id);
@@ -46,13 +50,13 @@ export class AuthService {
       }
     } else {
       this.analyticsService.track('[Authentication] - Login', user._id, {
-        loginType: authProvider
+        loginType: authProvider,
       });
     }
 
     return {
       newUser,
-      token: await this.getSignedToken(user)
+      token: await this.getSignedToken(user),
     };
   }
 
@@ -65,17 +69,20 @@ export class AuthService {
   async getSignedToken(user: UserEntity): Promise<string> {
     const roles = ['user'];
 
-    return this.jwtService.sign({
-      _id: user._id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      profilePicture: user.profilePicture,
-      roles
-    }, {
-      expiresIn: '30 days',
-      issuer: 'nest-starter_api'
-    });
+    return this.jwtService.sign(
+      {
+        _id: user._id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        profilePicture: user.profilePicture,
+        roles,
+      },
+      {
+        expiresIn: '30 days',
+        issuer: 'nest-starter_api',
+      }
+    );
   }
 
   async validateUser(payload: IJwtPayload): Promise<UserEntity> {

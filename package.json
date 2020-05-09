@@ -2,6 +2,7 @@
   "name": "nest-starter",
   "private": true,
   "scripts": {
+    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "test": "cross-env CI=true lerna run test:watch --stream --parallel",
@@ -12,6 +13,20 @@
     "release:patch": "lerna version patch"
   },
   "devDependencies": {
+    "lint-staged": "^10.2.2",
+    "eslint": "6.8.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-config-airbnb-typescript": "^7.2.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-webpack": "^0.12.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
+    "babel-eslint": "^10.1.0",
     "prettier": "^2.0.5",
     "@types/node": "^10.12.12",
     "lerna": "^3.20.2",
@@ -23,5 +38,26 @@
   "workspaces": [
     "apps/*",
     "libs/*"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --ignore-path .eslintignore --write"
+    ],
+    "{*.json,.{babelrc,eslintrc,prettierrc,stylelintrc}}": [
+      "prettier --ignore-path .eslintignore --parser json --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --ignore-path .eslintignore --syntax scss --fix",
+      "prettier --ignore-path .eslintignore --single-quote --write"
+    ],
+    "*.{html,md,yml}": [
+      "prettier --ignore-path .eslintignore --single-quote --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }

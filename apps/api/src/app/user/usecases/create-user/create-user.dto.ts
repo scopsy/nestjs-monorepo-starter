@@ -7,9 +7,13 @@ export class CreateUserCommand {
   }
 
   email: string;
+
   firstName: string;
+
   lastName: string;
+
   picture?: string;
+
   auth: {
     profileId: string;
     provider: AuthProviderEnum;

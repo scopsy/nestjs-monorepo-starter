@@ -5,12 +5,7 @@ import { SeedDataCommand } from './usecases/seed-data/seed-data.command';
 
 @Controller('/testing')
 export class TestingController {
-
-  constructor(
-    private seedDataUsecase: SeedData
-  ) {
-
-  }
+  constructor(private seedDataUsecase: SeedData) {}
 
   /**
    * Used for seeding data for client e2e tests,

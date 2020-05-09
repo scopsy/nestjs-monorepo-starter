@@ -5,46 +5,45 @@ import {
   UserRepository,
   StorageService,
   AnalyticsService,
-  MailService
+  MailService,
 } from '@nest-starter/core';
 
-const DAL_MODELS = [
-  UserRepository
-];
+const DAL_MODELS = [UserRepository];
 
 const dalService = new DalService();
 export const ANALYTICS_SERVICE = 'AnalyticsService';
 
-const PROVIDERS = [{
+const PROVIDERS = [
+  {
     provide: QueueService,
     useFactory: () => {
-        return new QueueService();
-    }
-  }, {
+      return new QueueService();
+    },
+  },
+  {
     provide: DalService,
     useFactory: async () => {
-        await dalService.connect(process.env.MONGO_URL);
-        return dalService;
-    }
+      await dalService.connect(process.env.MONGO_URL);
+      return dalService;
+    },
   },
   ...DAL_MODELS,
-  StorageService, {
+  StorageService,
+  {
     provide: ANALYTICS_SERVICE,
     useFactory: async () => {
       const analyticsService = new AnalyticsService();
       await analyticsService.initialize();
 
       return analyticsService;
-    }
+    },
   },
-  MailService
+  MailService,
 ];
 
 @Module({
   imports: [],
   providers: [...PROVIDERS],
-  exports: [...PROVIDERS]
+  exports: [...PROVIDERS],
 })
-export class SharedModule {
-
-}
+export class SharedModule {}

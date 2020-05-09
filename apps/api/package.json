@@ -90,7 +90,6 @@
     "supertest": "^4.0.2",
     "ts-loader": "^7.0.1",
     "ts-node": "^8.9.1",
-    "tsconfig-paths": "^3.9.0",
-    "tslint": "^6.1.2"
+    "tsconfig-paths": "^3.9.0"
   }
 }

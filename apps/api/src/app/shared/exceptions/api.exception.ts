@@ -1,5 +1,3 @@
 import { BadRequestException } from '@nestjs/common';
 
-export class ApiException extends BadRequestException {
-
-}
+export class ApiException extends BadRequestException {}

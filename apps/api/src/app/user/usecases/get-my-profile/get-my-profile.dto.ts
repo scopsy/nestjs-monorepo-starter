@@ -5,5 +5,4 @@ export class GetMyProfileCommand extends AuthenticatedCommand {
   static create(data: GetMyProfileCommand) {
     return CommandHelper.create(GetMyProfileCommand, data);
   }
-
 }

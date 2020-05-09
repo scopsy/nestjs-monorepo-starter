@@ -4,10 +4,7 @@ import { version } from '../../../package.json';
 
 @Controller('health-check')
 export class HealthController {
-  constructor(
-    private health: HealthCheckService,
-    private dns: DNSHealthIndicator,
-  ) { }
+  constructor(private health: HealthCheckService, private dns: DNSHealthIndicator) {}
 
   @Get()
   @HealthCheck()
@@ -16,9 +13,12 @@ export class HealthController {
       async () => this.dns.pingCheck('google', 'https://google.com'),
       async () => {
         return {
-          version
-        } as any;
-      }
+          apiVersion: {
+            version,
+            status: 'up',
+          },
+        };
+      },
     ]);
   }
 }

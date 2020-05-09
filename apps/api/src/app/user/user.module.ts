@@ -5,21 +5,9 @@ import { UserController } from './user.controller';
 import { UserResolver } from './user.resolver';
 
 @Module({
-  imports: [
-    SharedModule
-  ],
-  controllers: [
-    UserController
-  ],
-  providers: [
-    ...USE_CASES,
-    UserResolver
-  ],
-  exports: [
-    ...USE_CASES,
-    UserResolver
-  ]
+  imports: [SharedModule],
+  controllers: [UserController],
+  providers: [...USE_CASES, UserResolver],
+  exports: [...USE_CASES, UserResolver],
 })
-export class UserModule {
-
-}
+export class UserModule {}

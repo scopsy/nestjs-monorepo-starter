@@ -1,23 +1,11 @@
-import { Module, OnModuleInit } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+import { TerminusModule } from '@nestjs/terminus';
 import { SharedModule } from '../shared/shared.module';
 import { HealthController } from './health.controller';
-import { TerminusModule } from '@nestjs/terminus';
 
 @Module({
-  imports: [
-    SharedModule,
-    TerminusModule
-  ],
+  imports: [SharedModule, TerminusModule],
   controllers: [HealthController],
-  providers: []
+  providers: [],
 })
-export class HealthModule implements OnModuleInit {
-  constructor(
-  ) {
-
-  }
-
-  async onModuleInit() {
-
-  }
-}
+export class HealthModule {}

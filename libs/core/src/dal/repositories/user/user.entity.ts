@@ -12,9 +12,13 @@ export interface IUserToken {
 
 export class UserEntity {
   _id: string;
+
   firstName: string;
+
   lastName: string;
+
   email: string;
+
   profilePicture: string;
 
   @Exclude({ toPlainOnly: true })
@@ -22,5 +26,6 @@ export class UserEntity {
 
   @Exclude({ toPlainOnly: true })
   password?: string;
+
   createdAt: string;
 }

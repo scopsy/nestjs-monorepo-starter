@@ -4,21 +4,17 @@ import * as Agenda from 'agenda';
 export class CronService {
   private agenda = new Agenda({
     db: {
-      address: this.config.mongoUrl
-    }
+      address: this.config.mongoUrl,
+    },
   });
 
-  constructor(
-    private config: { mongoUrl: string }
-  ) {
-
-  }
+  constructor(private config: { mongoUrl: string }) {}
 
   async initialize() {
     await this.agenda.start();
   }
 
-  define(name: string, callback: (job: Job<any>, done: (err?: Error) => void) => void): void {
+  define<T>(name: string, callback: (job: Job<T>, done: (err?: Error) => void) => void): void {
     this.agenda.define(name, callback);
   }
 

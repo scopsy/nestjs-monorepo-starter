@@ -10,30 +10,25 @@ export interface Response<T> {
 
 @Injectable()
 export class ResponseInterceptor<T> implements NestInterceptor<T, Response<T>> {
-  intercept(
-    context: ExecutionContext,
-    next: CallHandler,
-  ): Observable<Response<T>> {
-    return next
-      .handle()
-      .pipe(map(data => {
+  intercept(context: ExecutionContext, next: CallHandler): Observable<Response<T>> {
+    return next.handle().pipe(
+      map((data) => {
         return {
-          data: isObject(data) ? this.transformResponse(data) : data
+          data: isObject(data) ? this.transformResponse(data) : data,
         };
-      }));
+      })
+    );
   }
 
   private transformResponse(response) {
     if (isArray(response)) {
-      return response.map(item => this.transformToPlain(item));
+      return response.map((item) => this.transformToPlain(item));
     }
 
     return this.transformToPlain(response);
   }
 
   private transformToPlain(plainOrClass) {
-    return plainOrClass && plainOrClass.constructor !== Object
-      ? classToPlain(plainOrClass)
-      : plainOrClass;
+    return plainOrClass && plainOrClass.constructor !== Object ? classToPlain(plainOrClass) : plainOrClass;
   }
 }
