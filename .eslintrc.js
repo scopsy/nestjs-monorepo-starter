@@ -1,14 +1,13 @@
 module.exports = {
   extends: [
     'airbnb-typescript',
-    'plugin:react/recommended',
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
     'plugin:promise/recommended',
   ],
-  plugins: ['import', 'promise', 'react', '@typescript-eslint'],
+  plugins: ['import', 'promise', '@typescript-eslint'],
   parser: '@typescript-eslint/parser',
   settings: {
     'import/parsers': {
@@ -16,13 +15,8 @@ module.exports = {
     },
   },
   parserOptions: {
-    project: './tsconfig.json',
     ecmaVersion: 2020,
     sourceType: 'module',
-  },
-  env: {
-    browser: true,
-    node: true,
   },
   rules: {
     '@typescript-eslint/no-unused-expressions': 'off',
@@ -37,13 +31,9 @@ module.exports = {
     'no-prototype-builtins': 'off',
     'import/no-cycle': 'off',
     'class-methods-use-this': 'off',
-    'react/jsx-wrap-multilines': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/no-explicit-any': 2,
     'no-restricted-syntax': 'off',
-    'react/jsx-curly-newline': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-closing-bracket-location': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     'no-underscore-dangle': 'off',
     'import/prefer-default-export': 'off',

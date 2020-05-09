@@ -7,11 +7,12 @@
   "scripts": {
     "build": "node --max-old-space-size=1500 node_modules/.bin/tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
+    "precommit": "lint-staged",
     "start": "TZ=UTC ts-node src/main.ts",
     "start:dev": "cross-env TZ=UTC nodemon",
     "start:debug": "TZ=UTC nodemon --config nodemon-debug.json",
     "start:prod": "TZ=UTC node dist/main.js",
-    "lint": "TZ=UTC tslint -p tsconfig.json -c tslint.json",
+    "lint": "eslint --fix",
     "test": "cross-env TZ=UTC NODE_ENV=test mocha --timeout 10000 --require ts-node/register --exit src/**/**/*.spec.ts",
     "test:e2e": "cross-env TZ=UTC NODE_ENV=test mocha --timeout 10000 --require ts-node/register --exit --file e2e/setup.ts e2e/**/*.e2e.ts"
   },
@@ -35,7 +36,6 @@
     "@slack/web-api": "^5.8.0",
     "@types/bcrypt": "^3.0.0",
     "@types/fs-extra": "^8.1.0",
-    "@types/node": "^11.10.4",
     "@types/passport-github": "^1.1.5",
     "@types/puppeteer": "^2.0.1",
     "@types/semver": "^7.1.0",
@@ -91,5 +91,12 @@
     "ts-loader": "^7.0.1",
     "ts-node": "^8.9.1",
     "tsconfig-paths": "^3.9.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["yarn lint", "prettier --ignore-path .eslintignore --write"],
+    "{*.json,.{babelrc,eslintrc,prettierrc,stylelintrc}}": [
+      "prettier --ignore-path .eslintignore --parser json --write"
+    ],
+    "*.{html,md,yml}": ["prettier --ignore-path .eslintignore --single-quote --write"]
   }
 }

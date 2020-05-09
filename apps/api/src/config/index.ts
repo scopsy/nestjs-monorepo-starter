@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
 import * as envalid from 'envalid';
-import { str, email, json, url, port } from 'envalid';
+import { str, url, port } from 'envalid';
 
 dotenv.config();
 

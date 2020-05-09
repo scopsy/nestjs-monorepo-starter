@@ -2,7 +2,7 @@
   "name": "nest-starter",
   "private": true,
   "scripts": {
-    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
+    "lint": "lerna run lint --stream",
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "test": "cross-env CI=true lerna run test:watch --stream --parallel",
@@ -39,25 +39,9 @@
     "apps/*",
     "libs/*"
   ],
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix",
-      "prettier --ignore-path .eslintignore --write"
-    ],
-    "{*.json,.{babelrc,eslintrc,prettierrc,stylelintrc}}": [
-      "prettier --ignore-path .eslintignore --parser json --write"
-    ],
-    "*.{css,scss}": [
-      "stylelint --ignore-path .eslintignore --syntax scss --fix",
-      "prettier --ignore-path .eslintignore --single-quote --write"
-    ],
-    "*.{html,md,yml}": [
-      "prettier --ignore-path .eslintignore --single-quote --write"
-    ]
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lerna run --concurrency 1 --stream precommit"
     }
   }
 }
