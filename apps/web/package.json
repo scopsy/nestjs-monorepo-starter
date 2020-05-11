@@ -20,5 +20,8 @@
       "prettier --ignore-path .eslintignore --parser json --write"
     ],
     "*.{html,md,yml}": ["prettier --ignore-path .eslintignore --single-quote --write"]
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.35"
   }
 }
