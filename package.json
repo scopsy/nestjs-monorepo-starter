@@ -2,7 +2,7 @@
   "name": "nest-starter",
   "private": true,
   "scripts": {
-    "lint": "lerna run lint --stream",
+    "lint": "lerna run lint --stream -- . --cache --ext .js,.jsx,.ts,.tsx",
     "clean": "lerna clean",
     "bootstrap": "lerna bootstrap",
     "test": "cross-env CI=true lerna run test:watch --stream --parallel",

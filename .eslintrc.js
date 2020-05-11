@@ -7,14 +7,13 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:promise/recommended',
   ],
-  plugins: ['import', 'promise', '@typescript-eslint'],
+  plugins: ['import', 'promise', '@typescript-eslint', 'prettier'],
   parser: '@typescript-eslint/parser',
   settings: {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
   },
-  ignorePatterns: ['**/*'],
   parserOptions: {
     project: './tsconfig.json',
     ecmaVersion: 2020,
