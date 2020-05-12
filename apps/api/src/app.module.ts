@@ -11,7 +11,8 @@ import { HealthModule } from './app/health/health.module';
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      autoSchemaFile: 'schema.graphql',
+      context: ({ req }) => ({ req }),
     }),
     SharedModule,
     TestingModule,

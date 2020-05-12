@@ -1,0 +1,17 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+  query: Query
+}
+
+type Query {
+  me: User!
+}
+
+type User {
+  _id: ID!
+  email: String
+  firstName: String
+  lastName: String
+  profilePicture: String
+}

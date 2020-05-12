@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isObject, isArray } from 'lodash';
 import { classToPlain } from 'class-transformer';
+import { GraphQLExecutionContext } from '@nestjs/graphql';
 
 export interface Response<T> {
   data: T;
@@ -10,7 +11,9 @@ export interface Response<T> {
 
 @Injectable()
 export class ResponseInterceptor<T> implements NestInterceptor<T, Response<T>> {
-  intercept(context: ExecutionContext, next: CallHandler): Observable<Response<T>> {
+  intercept(context: GraphQLExecutionContext, next: CallHandler): Observable<Response<T>> {
+    if (context.getType() === 'graphql') return next.handle();
+
     return next.handle().pipe(
       map((data) => {
         return {

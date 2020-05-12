@@ -15,8 +15,8 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "dependencies": {
-    "@octokit/graphql": "^4.3.1",
     "@nest-starter/shared": "^1.1.70",
+    "@octokit/graphql": "^4.3.1",
     "@sendgrid/mail": "^7.0.1",
     "@types/agenda": "^2.0.7",
     "@types/async": "^3.2.1",
@@ -31,6 +31,7 @@
     "bull": "^3.13.0",
     "bull-arena": "^2.8.1",
     "class-transformer": "^0.2.3",
+    "cross-fetch": "^3.0.4",
     "event-stream": "^4.0.1",
     "faker": "^4.1.0",
     "fs-extra": "^9.0.0",
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.30",
+    "apollo-boost": "^0.4.8",
     "nodemon": "^2.0.3",
     "ts-node": "^8.9.1",
     "tsconfig-paths": "^3.9.0"

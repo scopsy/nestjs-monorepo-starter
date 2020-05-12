@@ -10,6 +10,7 @@ import { AuthService } from './services/auth.service';
 import { USE_CASES } from './usecases';
 import { SharedModule } from '../shared/shared.module';
 import { GithubStrategy } from './services/passport/github.strategy';
+import { GqlAuthGuard } from './framework/gql-auth.guard';
 
 const AUTH_STRATEGIES = [];
 
@@ -32,8 +33,8 @@ if (process.env.GITHUB_OAUTH_CLIENT_ID) {
     }),
   ],
   controllers: [AuthController],
-  providers: [...USE_CASES, ...AUTH_STRATEGIES, JwtStrategy, AuthService, RolesGuard],
-  exports: [RolesGuard, AuthService],
+  providers: [...USE_CASES, ...AUTH_STRATEGIES, JwtStrategy, AuthService, RolesGuard, GqlAuthGuard],
+  exports: [RolesGuard, AuthService, GqlAuthGuard],
 })
 export class AuthModule implements NestModule {
   public configure(consumer: MiddlewareConsumer) {

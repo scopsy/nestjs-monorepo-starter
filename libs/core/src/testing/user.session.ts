@@ -1,7 +1,10 @@
+import 'cross-fetch/polyfill';
 import * as faker from 'faker';
 import { SuperTest, Test } from 'supertest';
 import * as request from 'supertest';
 import * as defaults from 'superagent-defaults';
+import ApolloClient from 'apollo-boost';
+
 import { UserEntity, UserRepository } from '../dal/repositories/user';
 import { testServer } from './test-server.service';
 
@@ -15,6 +18,19 @@ export class UserSession {
   testAgent: SuperTest<Test>;
 
   testServer = testServer;
+
+  gql = new ApolloClient({
+    uri: `http://localhost:${process.env.PORT}/graphql`,
+    request: (operation) => {
+      if (this.token) {
+        operation.setContext({
+          headers: {
+            Authorization: `${this.token}`,
+          },
+        });
+      }
+    },
+  });
 
   constructor(private options: {} = {}) {}
 
