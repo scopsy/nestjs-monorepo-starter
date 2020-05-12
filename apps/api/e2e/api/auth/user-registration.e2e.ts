@@ -17,10 +17,10 @@ describe('User registration - /auth/register (POST)', async () => {
     });
 
     expect(body.statusCode).to.equal(400);
-    expect(body.message.find((i) => i.property === 'email')).to.be.ok;
-    expect(body.message.find((i) => i.property === 'password')).to.be.ok;
-    expect(body.message.find((i) => i.property === 'firstName')).to.be.ok;
-    expect(body.message.find((i) => i.property === 'lastName')).to.be.ok;
+    expect(body.message.find((i) => i.includes('email'))).to.be.ok;
+    expect(body.message.find((i) => i.includes('password'))).to.be.ok;
+    expect(body.message.find((i) => i.includes('firstName'))).to.be.ok;
+    expect(body.message.find((i) => i.includes('lastName'))).to.be.ok;
   });
 
   it('should create a new user successfully', async () => {
