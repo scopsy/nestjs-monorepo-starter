@@ -34,3 +34,9 @@ jobs:
     - name: Run a build
       run: |
         yarn run build
+        
+        
+    # Runs a set of commands using the runners shell
+    - name: Run a test
+      run: |
+        cd apps/api && yarn run test:e2e
