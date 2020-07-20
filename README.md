@@ -1,5 +1,7 @@
 # NestJS Mono repo starter
 
+![CI](https://github.com/scopsy/nestjs-monorepo-starter/workflows/CI/badge.svg)
+
 This is a monorepo boilerplate to quickly start nestjs projects, this start includes an api, client and shared libraries.
 
 - [Overview](#overview)
