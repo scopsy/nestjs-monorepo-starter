@@ -1,12 +1,12 @@
 import { Module, OnModuleInit } from '@nestjs/common';
 import { CronService, QueueService } from '@nest-starter/core';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
 import { SharedModule } from './app/shared/shared.module';
 import { UserModule } from './app/user/user.module';
 import { AuthModule } from './app/auth/auth.module';
 import { TestingModule } from './app/testing/testing.module';
 import { HealthModule } from './app/health/health.module';
+import { AdminModule } from './app/admin/admin.module';
 
 @Module({
   imports: [
@@ -20,6 +20,7 @@ import { HealthModule } from './app/health/health.module';
     UserModule,
     AuthModule,
     HealthModule,
+    AdminModule,
   ],
   controllers: [],
   providers: [

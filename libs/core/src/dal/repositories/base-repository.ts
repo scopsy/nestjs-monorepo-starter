@@ -4,7 +4,11 @@ import { ClassType } from 'class-transformer/ClassTransformer';
 import { Document, Model } from 'mongoose';
 
 export class BaseRepository<T> {
-  constructor(protected MongooseModel: Model<any & Document>, protected entity: ClassType<T>) {}
+  public _model: Model<any & Document>;
+
+  constructor(protected MongooseModel: Model<any & Document>, protected entity: ClassType<T>) {
+    this._model = MongooseModel;
+  }
 
   async count(query: any): Promise<number> {
     return await this.MongooseModel.countDocuments(query);
