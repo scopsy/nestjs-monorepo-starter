@@ -36,7 +36,7 @@
     "@slack/events-api": "^2.3.2",
     "@slack/web-api": "^5.8.0",
     "@types/bcrypt": "^3.0.0",
-    "@types/fs-extra": "^8.1.0",
+    "@types/fs-extra": "^9.0.1",
     "@types/passport-github": "^1.1.5",
     "@types/puppeteer": "^3.0.1",
     "@types/semver": "^7.1.0",
