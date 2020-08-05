@@ -5932,9 +5932,9 @@ backo2@^1.0.2:
   integrity sha1-MasayLEpNjRj41s+u2n038+6eUc=
 
 badgen@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/badgen/-/badgen-3.0.1.tgz#1d57d1241c61b0c9c19a502fda71ef0364ccf9c9"
-  integrity sha512-ANQ8b2/zOvqLUMJ5fLgUCO7xRmOqFx9+ZOta9p3Taudd9c/gHEAh+5Ivnr2zFgj9kguTzXKkEzfI48hDwGWNcA==
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/badgen/-/badgen-3.2.1.tgz#71d09113a091796e74540d0ca8ebc45f89e0f55a"
+  integrity sha512-XibyDQHM/7l809dJBp1GEvPmHY3BLgO164f6DuHyLP0OTHDm9EAmHjN7hEyiGQATEpn4G3EVGH8x+M4UFfhkHw==
 
 balanced-match@^1.0.0:
   version "1.0.0"
