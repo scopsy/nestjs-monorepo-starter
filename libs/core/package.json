@@ -34,7 +34,7 @@
     "cross-fetch": "^3.0.4",
     "event-stream": "^4.0.1",
     "faker": "^4.1.0",
-    "fs-extra": "^9.0.0",
+    "fs-extra": "^9.0.1",
     "googleapis": "^55.0.0",
     "intercom-client": "^2.11.0",
     "jsonfile": "^6.0.1",
