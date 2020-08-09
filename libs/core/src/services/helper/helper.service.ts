@@ -1,4 +1,4 @@
-import * as uuidv1 from 'uuid/v1';
+import { v1 as uuidv1 } from 'uuid';
 
 export function createGuid(): string {
   return uuidv1();
