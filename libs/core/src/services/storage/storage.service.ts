@@ -1,8 +1,8 @@
 import * as S3 from 'aws-sdk/clients/s3';
 import * as fs from 'fs-extra';
 import * as archiver from 'archiver';
-import * as uuid from 'uuid/v1';
 import * as asyncLib from 'async';
+import { createGuid } from '../helper/helper.service';
 
 export interface IFilePath {
   path: string;
@@ -59,7 +59,7 @@ export class StorageService {
     // eslint-disable-next-line no-async-promise-executor
     return await new Promise(async (resolve, reject) => {
       const results = await this.downloadFiles(paths);
-      const outputPath = `/tmp/${uuid()}.zip`;
+      const outputPath = `/tmp/${createGuid()}.zip`;
       const output = fs.createWriteStream(outputPath);
       const archive = archiver('zip', {
         zlib: { level: 9 },
