@@ -6346,9 +6346,9 @@ bull-arena@^2.8.1:
     tablesort "^5.0.1"
 
 bull@^3.12.1, bull@^3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/bull/-/bull-3.13.0.tgz#232935f9a5c0c87be6eb2aa95e434ff115bacd7a"
-  integrity sha512-nP8ICMNHGYDNt6cgPqBPm90n57xA+/Om2wI2EGEOIJtWutjrYt8JAWiiFYjZKrly9UkKlrfG9qgOCwFFdS5xaw==
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/bull/-/bull-3.16.0.tgz#adabb8404ebecedfbe4f3b9b2163e249de1915ff"
+  integrity sha512-5RAeKPJwhzuk5y4TL5ys+mX1p1r8TOKUF537c2VFVqg0Z+Y2zL1gXfgk0OAlIhD+9E/q3BgRvN96AxUz6nfBDA==
   dependencies:
     cron-parser "^2.13.0"
     debuglog "^1.0.0"
@@ -6359,7 +6359,7 @@ bull@^3.12.1, bull@^3.13.0:
     promise.prototype.finally "^3.1.2"
     semver "^6.3.0"
     util.promisify "^1.0.1"
-    uuid "^3.4.0"
+    uuid "^8.2.0"
 
 busboy@^0.2.11:
   version "0.2.14"
@@ -19888,12 +19888,12 @@ uuid@3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-uuid@8.3.0, uuid@^8.0.0, uuid@^8.3.0:
+uuid@8.3.0, uuid@^8.0.0, uuid@^8.2.0, uuid@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-8.3.0.tgz#ab738085ca22dc9a8c92725e459b1d507df5d6ea"
   integrity sha512-fX6Z5o4m6XsXBdli9g7DtWgAx+osMsRRZFKma1mIUsLCz6vRvv+pz5VNbyu9UEDzpMWulZfvpgb/cmDXVulYFQ==
 
-uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2, uuid@^3.4.0:
+uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
