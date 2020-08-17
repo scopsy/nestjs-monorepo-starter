@@ -3652,9 +3652,9 @@
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
 "@slack/events-api@^2.3.2":
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/@slack/events-api/-/events-api-2.3.3.tgz#f7ede037ffb659edbb65879c7fd317063763123b"
-  integrity sha512-3VtKOrCoh/sJKZgDMTUL+Hn5WJ2JXXJgkic0cRbDye0KYSgkolS09AqPDIGV0EKkp5w+kiKihc4p50+ouoVAcg==
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@slack/events-api/-/events-api-2.3.4.tgz#73aabcba2a5543b0b7f56c15725594fd180ca870"
+  integrity sha512-4H+/op+GwIJ5aqpN7K1WcLuyqvpjCw48HYS4Xaw35tN84T0MDfOvQIA6Sacor9OpwCxKaY60Mwo73FT5Q+VvKg==
   dependencies:
     "@types/debug" "^4.1.4"
     "@types/express" "^4.17.0"
