@@ -86,7 +86,7 @@
     "mocha": "^8.1.1",
     "nodemon": "^2.0.3",
     "sinon": "^9.0.2",
-    "superagent": "^5.2.2",
+    "superagent": "^6.0.0",
     "superagent-defaults": "^0.1.14",
     "supertest": "^4.0.2",
     "ts-loader": "^8.0.1",
