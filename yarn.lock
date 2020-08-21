@@ -3941,9 +3941,9 @@
     "@types/node" "*"
 
 "@types/bull@^3.12.2":
-  version "3.14.0"
-  resolved "https://registry.yarnpkg.com/@types/bull/-/bull-3.14.0.tgz#60741d3f5006bd4e17b02ff036e6ecef7ac47a6e"
-  integrity sha512-9MKWQ4Q+GFIEA3/SdSc128mAccCKni2YVMKPEdQY5qooN+3gl0Po+f7kaKukgn5s6YXj5xbvc/zTaMsHZL9GvA==
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/@types/bull/-/bull-3.14.1.tgz#043ce8569d9e9d2b9c7ed1534179507ad6dbeb99"
+  integrity sha512-p0qLVWGWvvAq5mqTw+5m4bWz56ydl7bQQsQgFG4lgPiKx2h6OeSDWsWUw8CGan+ISXwExCSLnlu796Lq0hgNQg==
   dependencies:
     "@types/ioredis" "*"
 
