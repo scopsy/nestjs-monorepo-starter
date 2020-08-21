@@ -3865,9 +3865,9 @@
     "@types/node" "*"
 
 "@types/agenda@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/@types/agenda/-/agenda-2.0.7.tgz#6e7977d2e852d3bca102e2dd4a4d20b6f1a563e3"
-  integrity sha512-a/NMzy5Akhect+t2LD4nYUeNv44/U4Ay67uHMwQ89WWaQ/23gAEKf2hibwSkkTAsM/yr05R2cgqb84oN0O0rQw==
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/@types/agenda/-/agenda-2.0.9.tgz#bc7354aeee064bfe6145e4804e450c9b04345526"
+  integrity sha512-uSQmxC9/OWvXCprY5+xzDUt95NCAffijeODNM4qscWnl9TGXIxyeA59MKF1Wq0OUPpURiWylVuNGUzBku1KrIA==
   dependencies:
     "@types/mongodb" "*"
     "@types/node" "*"
