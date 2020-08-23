@@ -34,7 +34,7 @@
     "monorepo-run": "^0.4.2",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
-    "typescript": "^3.8.3"
+    "typescript": "^4.0.2"
   },
   "workspaces": [
     "apps/*",
