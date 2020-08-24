@@ -29,7 +29,7 @@
     "aws-sdk": "^2.665.0",
     "bluebird": "^3.7.2",
     "bull": "^3.13.0",
-    "bull-arena": "^2.8.1",
+    "bull-arena": "^3.2.2",
     "class-transformer": "^0.3.1",
     "cross-fetch": "^3.0.4",
     "event-stream": "^4.0.1",
