@@ -90,7 +90,7 @@
     "superagent-defaults": "^0.1.14",
     "supertest": "^4.0.2",
     "ts-loader": "^8.0.1",
-    "ts-node": "^8.9.1",
+    "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0"
   },
   "lint-staged": {
