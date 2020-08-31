@@ -35,7 +35,7 @@
     "event-stream": "^4.0.1",
     "faker": "^5.1.0",
     "fs-extra": "^9.0.0",
-    "googleapis": "^58.0.0",
+    "googleapis": "^59.0.0",
     "intercom-client": "^2.11.0",
     "jsonfile": "^6.0.1",
     "mixpanel": "^0.11.0",
