@@ -51,7 +51,7 @@
     "@types/bluebird": "^3.5.30",
     "apollo-boost": "^0.4.8",
     "nodemon": "^2.0.3",
-    "ts-node": "^8.9.1",
+    "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0"
   }
 }
