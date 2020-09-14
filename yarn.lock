@@ -3601,9 +3601,9 @@
   integrity sha512-YvLCtxqbIdCCI+xMQBFH3GJVhRp8jJNl8BUE0RgJlZcDF+wXSB1wkcgLz7zHtD3oOF39GedYiE1e/rQrZ4Dr1A==
 
 "@slack/web-api@^5.8.0":
-  version "5.11.0"
-  resolved "https://registry.yarnpkg.com/@slack/web-api/-/web-api-5.11.0.tgz#6549ec71d13c2837cc672cbf7793a88eef22802f"
-  integrity sha512-4a/uj7IZjFLu7Qmq0nH74ecLqk1iI/9x3yRS/v6M5vXDyc5lEruRFp4d5/bz4eN5Bathlq4Bws0wioY516fPag==
+  version "5.12.0"
+  resolved "https://registry.yarnpkg.com/@slack/web-api/-/web-api-5.12.0.tgz#1de5e660f20fa64091bcc73eb41e3c1d3ae8e13c"
+  integrity sha512-ygSnNHVid7PltGo7W36f2SNVHyliemkzxn9uSwgnWNF7CHmWBKWAylU/eoDml9l5K7akMOxbousiurOw4XqOFg==
   dependencies:
     "@slack/logger" ">=1.0.0 <3.0.0"
     "@slack/types" "^1.7.0"
