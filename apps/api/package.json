@@ -88,7 +88,7 @@
     "sinon": "^9.0.2",
     "superagent": "^6.0.0",
     "superagent-defaults": "^0.1.14",
-    "supertest": "^4.0.2",
+    "supertest": "^5.0.0",
     "ts-loader": "^8.0.1",
     "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0"

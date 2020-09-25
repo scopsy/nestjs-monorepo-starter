@@ -43,7 +43,7 @@
     "ng-intercom": "^8.0.2",
     "reflect-metadata": "^0.1.13",
     "superagent-defaults": "^0.1.14",
-    "supertest": "^4.0.2",
+    "supertest": "^5.0.0",
     "typescript": "^4.0.2",
     "uuid": "^8.3.0"
   },
