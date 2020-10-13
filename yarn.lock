@@ -16889,9 +16889,9 @@ ra-data-nestjsx-crud@^1.1.3:
     lodash.omitby "^4.6.0"
 
 ra-data-simple-rest@^3.5.5:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/ra-data-simple-rest/-/ra-data-simple-rest-3.8.3.tgz#8bcde8813f91ee486897154db35e6388e9e30164"
-  integrity sha512-Ld+PCWMcVqS7IQOeqGnCuYWJpuvNYGRklyb7YG9fU5XNslY/jxS3Ggb+73DPngT9n1Voby/DatLMjbcHwYBKiQ==
+  version "3.9.3"
+  resolved "https://registry.yarnpkg.com/ra-data-simple-rest/-/ra-data-simple-rest-3.9.3.tgz#b81d9cff2d5dd2a50519d2a74dbc5ba2cc7c9799"
+  integrity sha512-oFVwE1dcCJF7oo4/9VrZg2Kk7N30KW5dKFRENNvqLYEx0RlIpa8q2cST7ivKqdAWzYdKA/dH1h2vDX0v9t1ZDA==
   dependencies:
     query-string "^5.1.1"
 
