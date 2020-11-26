@@ -7,12 +7,13 @@ import {
   NotFoundException,
   Param,
   Post,
+  Query,
   Req,
   Res,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
-import { UserRepository } from '@nest-starter/core';
+import { OrganizationRepository, UserRepository } from '@nest-starter/core';
 import { JwtService } from '@nestjs/jwt';
 import { AuthGuard } from '@nestjs/passport';
 import { IJwtPayload } from '@nest-starter/shared';
@@ -33,7 +34,8 @@ export class AuthController {
     private jwtService: JwtService,
     private authService: AuthService,
     private userRegisterUsecase: UserRegister,
-    private loginUsecase: Login
+    private loginUsecase: Login,
+    private organizationRepository: OrganizationRepository
   ) {}
 
   @Get('/github')
@@ -89,11 +91,16 @@ export class AuthController {
   }
 
   @Get('/test/token/:userId')
-  async authenticateTest(@Param('userId') userId: string) {
+  async authenticateTest(@Param('userId') userId: string, @Query('organizationId') organizationId: string) {
     if (process.env.NODE_ENV !== 'test') throw new NotFoundException();
 
     const user = await this.userRepository.findById(userId);
     if (!user) throw new BadRequestException('No user found');
-    return await this.authService.getSignedToken(user);
+
+    const member = organizationId
+      ? await this.organizationRepository.findMemberByUserId(organizationId, user._id)
+      : null;
+
+    return await this.authService.getSignedToken(user, organizationId, member);
   }
 }

@@ -13,4 +13,5 @@ export interface IJwtPayload {
   lastName: string;
   email: string;
   profilePicture: string;
+  organizationId?: string;
 }

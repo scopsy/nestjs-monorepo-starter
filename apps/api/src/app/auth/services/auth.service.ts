@@ -1,6 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { UserEntity, UserRepository, AnalyticsService, QueueService } from '@nest-starter/core';
+import {
+  UserEntity,
+  UserRepository,
+  AnalyticsService,
+  QueueService,
+  MemberEntity,
+  OrganizationRepository,
+} from '@nest-starter/core';
 import { AuthProviderEnum, IJwtPayload } from '@nest-starter/shared';
 
 import { CreateUserCommand } from '../../user/usecases/create-user/create-user.dto';
@@ -13,7 +20,8 @@ export class AuthService {
     private createUserUsecase: CreateUser,
     private jwtService: JwtService,
     private queueService: QueueService,
-    private analyticsService: AnalyticsService
+    private analyticsService: AnalyticsService,
+    private organizationRepository: OrganizationRepository
   ) {}
 
   async authenticate(
@@ -66,9 +74,11 @@ export class AuthService {
     return this.getSignedToken(user);
   }
 
-  async getSignedToken(user: UserEntity): Promise<string> {
-    const roles = ['user'];
+  async isAuthenticatedForOrganization(userId: string, organizationId: string): Promise<boolean> {
+    return !!(await this.organizationRepository.isMemberOfOrganization(organizationId, userId));
+  }
 
+  async getSignedToken(user: UserEntity, organizationId?: string, member?: MemberEntity): Promise<string> {
     return this.jwtService.sign(
       {
         _id: user._id,
@@ -76,11 +86,12 @@ export class AuthService {
         lastName: user.lastName,
         email: user.email,
         profilePicture: user.profilePicture,
-        roles,
+        organizationId: organizationId || null,
+        roles: member && member.roles,
       },
       {
         expiresIn: '30 days',
-        issuer: 'nest-starter_api',
+        issuer: 'starter_api',
       }
     );
   }
