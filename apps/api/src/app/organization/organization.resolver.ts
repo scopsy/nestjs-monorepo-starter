@@ -12,7 +12,6 @@ import { CreateOrganizationCommand } from './usecases/create-organization/create
 import { GetMembers } from './usecases/membership/get-members/get-members.usecase';
 import { GetMembersCommand } from './usecases/membership/get-members/get-members.command';
 import { Member } from './member.graph';
-import { Roles } from '../auth/framework/roles.decorator';
 
 @Resolver((of) => Organization)
 @UseGuards(GqlAuthGuard)
