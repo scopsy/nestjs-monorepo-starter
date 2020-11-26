@@ -4,12 +4,14 @@ import { SharedModule } from '../shared/shared.module';
 import { UserModule } from '../user/user.module';
 import { OrganizationController } from './organization.controller';
 import { USE_CASES } from './usecases';
+import { OrganizationResolver } from './organization.resolver';
+import { MemberResolver } from './member.resolver';
 
 @Module({
   imports: [SharedModule, UserModule],
   controllers: [OrganizationController],
-  providers: [...USE_CASES],
-  exports: [...USE_CASES],
+  providers: [...USE_CASES, OrganizationResolver, MemberResolver],
+  exports: [...USE_CASES, OrganizationResolver, MemberResolver],
 })
 export class OrganizationModule implements NestModule {
   configure(consumer: MiddlewareConsumer): MiddlewareConsumer | void {

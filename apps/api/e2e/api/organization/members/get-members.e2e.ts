@@ -1,7 +1,8 @@
 import { MemberEntity, OrganizationRepository, UserSession } from '@nest-starter/core';
-import { MemberRoleEnum, MemberStatusEnum } from '@nest-starter/shared';
+import { IOrganizationEntity, MemberRoleEnum, MemberStatusEnum } from '@nest-starter/shared';
 import { expect } from 'chai';
 import { describe } from 'mocha';
+import { gql } from 'apollo-boost';
 
 describe('Get Organization members - /organizations/members (GET)', async () => {
   let session: UserSession;
@@ -35,9 +36,32 @@ describe('Get Organization members - /organizations/members (GET)', async () => 
       memberStatus: MemberStatusEnum.ACTIVE,
     });
 
-    const { body } = await session.testAgent.get('/v1/organizations/members');
+    const {
+      data: {
+        currentOrganization: { members },
+      },
+    } = await session.gql.query<{ currentOrganization: IOrganizationEntity }>({
+      query: gql`
+        query GetMembers {
+          currentOrganization {
+            _id
+            name
+            members {
+              _id
+              _userId
+              memberStatus
+              user {
+                _id
+                email
+                firstName
+              }
+            }
+          }
+        }
+      `,
+    });
 
-    const response: MemberEntity[] = body.data;
+    const response: MemberEntity[] = members;
 
     expect(response.length).to.equal(3);
     const user2Member = response.find((i) => i._userId === user2.user._id);

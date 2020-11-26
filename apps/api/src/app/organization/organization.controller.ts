@@ -45,7 +45,6 @@ export class OrganizationController {
       userId: user._id,
       logo: body.logo,
       name: body.name,
-      taxIdentifier: body.taxIdentifier,
     });
     const organization = await this.createOrganizationUsecase.execute(command);
 

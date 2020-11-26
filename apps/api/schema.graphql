@@ -10,6 +10,29 @@ type User {
   email: String
 }
 
+type Organization {
+  _id: ID!
+  name: String
+  members: [Member!]!
+}
+
+type Member {
+  _id: ID!
+  _userId: String!
+  memberStatus: String!
+  user: User!
+}
+
 type Query {
   me: User!
+  currentOrganization: Organization!
+}
+
+type Mutation {
+  createOrganization(body: CreateOrganizationDto!): Organization!
+}
+
+input CreateOrganizationDto {
+  name: String!
+  logo: String
 }

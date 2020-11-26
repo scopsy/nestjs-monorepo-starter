@@ -1,6 +1,7 @@
-import { OrganizationEntity, OrganizationRepository, UserSession } from '@nest-starter/core';
-import { MemberRoleEnum } from '@nest-starter/shared';
+import { OrganizationRepository, UserSession } from '@nest-starter/core';
+import { IOrganizationEntity, MemberRoleEnum } from '@nest-starter/shared';
 import { expect } from 'chai';
+import { gql } from 'apollo-boost';
 
 describe('Create Organization - /organizations (POST)', async () => {
   let session: UserSession;
@@ -11,30 +12,25 @@ describe('Create Organization - /organizations (POST)', async () => {
     await session.initialize(true);
   });
 
-  describe('Wrong input', () => {
-    it('should fail to create org without name', async () => {
-      await session.testAgent
-        .post('/v1/organizations')
-        .send({
-          taxIdentifier: '12312',
-        })
-        .expect(400);
-    });
-  });
-
   describe('Valid Creation', () => {
-    let organization: OrganizationEntity;
-    const demoOrganization = {
-      name: 'Hello Org',
-    };
-
-    before(async () => {
-      const { body } = await session.testAgent.post('/v1/organizations').send(demoOrganization).expect(201);
-
-      organization = body.data;
-    });
-
     it('should add the user as admin', async () => {
+      const {
+        data: { createOrganization: organization },
+      } = await session.gql.mutate<{ createOrganization: IOrganizationEntity }>({
+        mutation: gql`
+          mutation CreateOrganization($body: CreateOrganizationDto!) {
+            createOrganization(body: $body) {
+              _id
+              name
+            }
+          }
+        `,
+        variables: {
+          body: {
+            name: 'Test Org 2',
+          },
+        },
+      });
       const dbOrganization = await organizationRepository.findById(organization._id);
 
       expect(dbOrganization.members.length).to.eq(1);
@@ -43,6 +39,25 @@ describe('Create Organization - /organizations (POST)', async () => {
     });
 
     it('should create organization with correct name', async () => {
+      const demoOrganization = {
+        name: 'Hello Org',
+      };
+      const {
+        data: { createOrganization: organization },
+      } = await session.gql.mutate<{ createOrganization: IOrganizationEntity }>({
+        mutation: gql`
+          mutation CreateOrganization($body: CreateOrganizationDto!) {
+            createOrganization(body: $body) {
+              _id
+              name
+            }
+          }
+        `,
+        variables: {
+          body: demoOrganization,
+        },
+      });
+
       expect(organization.name).to.eq(demoOrganization.name);
     });
   });
