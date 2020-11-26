@@ -6,9 +6,10 @@ import {
   StorageService,
   AnalyticsService,
   MailService,
+  OrganizationRepository,
 } from '@nest-starter/core';
 
-const DAL_MODELS = [UserRepository];
+const DAL_MODELS = [UserRepository, OrganizationRepository];
 
 const dalService = new DalService();
 export const ANALYTICS_SERVICE = 'AnalyticsService';

@@ -7,12 +7,14 @@ import ApolloClient from 'apollo-boost';
 
 import { UserEntity, UserRepository } from '../dal/repositories/user';
 import { testServer } from './test-server.service';
+import { OrganizationEntity } from '../dal';
+import { OrganizationService } from './organization.service';
 
 export class UserSession {
   private userRepository = new UserRepository();
 
   token: string;
-
+  organization: OrganizationEntity;
   user: UserEntity;
 
   testAgent: SuperTest<Test>;
@@ -34,7 +36,7 @@ export class UserSession {
 
   constructor(private options: {} = {}) {}
 
-  async initialize() {
+  async initialize(noOrganization?: boolean) {
     const card = {
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
@@ -48,14 +50,26 @@ export class UserSession {
       tokens: [],
     });
 
+    if (!noOrganization) {
+      await this.addOrganization();
+    }
+
     const { body } = await request(
       this.testServer ? this.testServer.getHttpServer() : `http://localhost:${process.env.PORT}`
-    ).get(`/v1/auth/test/token/${this.user._id}`);
+    ).get(`/v1/auth/test/token/${this.user._id}?&organizationId=${this.organization ? this.organization._id : ''}`);
 
     this.token = `Bearer ${body.data}`;
 
     if (this.testServer) {
       this.testAgent = defaults(request(this.testServer.getHttpServer())).set('Authorization', this.token);
     }
+  }
+
+  async addOrganization() {
+    const organizationService = new OrganizationService();
+    this.organization = await organizationService.createOrganization();
+    await organizationService.addMember(this.organization._id, this.user._id);
+
+    return this.organization;
   }
 }

@@ -33,12 +33,14 @@ module.exports = {
     'import/no-cycle': 'off',
     'class-methods-use-this': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/no-explicit-any': 2,
+    '@typescript-eslint/no-explicit-any': 1,
     'no-restricted-syntax': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     'no-underscore-dangle': 'off',
     'import/prefer-default-export': 'off',
     // A temporary hack related to IDE not resolving correct package.json
     'import/no-extraneous-dependencies': 'off',
+    'lines-between-class-members': 'off',
+    'max-classes-per-file': 'off'
   },
 };

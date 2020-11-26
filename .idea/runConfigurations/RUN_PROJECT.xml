@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RUN PROJECT" type="CompoundRunConfigurationType">
+    <toRun name="SHARED" type="js.build_tools.npm" />
+    <toRun name="CORE" type="js.build_tools.npm" />
+    <toRun name="API" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -7,9 +7,11 @@ import { AuthModule } from './app/auth/auth.module';
 import { TestingModule } from './app/testing/testing.module';
 import { HealthModule } from './app/health/health.module';
 import { AdminModule } from './app/admin/admin.module';
+import { OrganizationModule } from './app/organization/organization.module';
 
 @Module({
   imports: [
+    OrganizationModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.graphql',
       context: ({ req }) => ({ req }),
