@@ -4339,9 +4339,9 @@
     "@types/mime" "*"
 
 "@types/sinon@^9.0.0":
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-9.0.6.tgz#fb4b6883fe0417e6a1ac5d9753bdcb7016dd4dd0"
-  integrity sha512-j3GK0fiHgn8fe7sqOpInMjm0A2Tary1NBZ8gbI/sZ0C0JxYeO+nh8H0/pW/0l94vNWcH1FnZOZu/cOvIfNZTrg==
+  version "9.0.11"
+  resolved "https://registry.yarnpkg.com/@types/sinon/-/sinon-9.0.11.tgz#7af202dda5253a847b511c929d8b6dda170562eb"
+  integrity sha512-PwP4UY33SeeVKodNE37ZlOsR9cReypbMJOhZ7BVE0lB+Hix3efCOxiJWiE5Ia+yL9Cn2Ch72EjFTRze8RZsNtg==
   dependencies:
     "@types/sinonjs__fake-timers" "*"
 
