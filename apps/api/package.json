@@ -55,7 +55,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "nest-raven": "^7.0.0",
-    "normalize-url": "^5.0.0",
+    "normalize-url": "^6.0.1",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",
     "passport-google-oauth": "^2.0.0",
