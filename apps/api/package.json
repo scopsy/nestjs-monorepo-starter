@@ -85,7 +85,7 @@
     "faker": "^5.1.0",
     "mocha": "^8.1.1",
     "nodemon": "^2.0.3",
-    "sinon": "^9.0.2",
+    "sinon": "^11.1.1",
     "superagent": "^6.0.0",
     "superagent-defaults": "^0.1.14",
     "supertest": "^5.0.0",
