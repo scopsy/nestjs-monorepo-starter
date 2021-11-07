@@ -1,0 +1,69 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "06:00"
+    timezone: Israel
+  open-pull-requests-limit: 15
+  ignore:
+  - dependency-name: aws-sdk
+    versions:
+    - 2.831.0
+    - 2.858.0
+    - 2.878.0
+  - dependency-name: eslint-plugin-react
+    versions:
+    - 7.22.0
+    - 7.23.1
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: apollo-server-express
+    versions:
+    - 2.19.1
+    - 2.19.2
+    - 2.21.0
+    - 2.21.1
+    - 2.21.2
+  - dependency-name: react-admin
+    versions:
+    - 3.11.4
+    - 3.13.2
+    - 3.13.3
+    - 3.13.4
+  - dependency-name: "@types/sinon"
+    versions:
+    - 9.0.10
+    - 9.0.11
+  - dependency-name: "@testing-library/user-event"
+    versions:
+    - 12.6.2
+    - 12.6.3
+    - 12.7.3
+  - dependency-name: "@types/chai"
+    versions:
+    - 4.2.14
+    - 4.2.15
+  - dependency-name: "@types/react"
+    versions:
+    - 17.0.0
+    - 17.0.1
+    - 17.0.2
+  - dependency-name: sinon
+    versions:
+    - 9.2.3
+    - 9.2.4
+  - dependency-name: ra-data-simple-rest
+    versions:
+    - 3.10.4
+  - dependency-name: graphql-tools
+    versions:
+    - 7.0.2
+  - dependency-name: normalize-url
+    versions:
+    - 5.3.0
+  - dependency-name: "@types/bull"
+    versions:
+    - 3.14.4
