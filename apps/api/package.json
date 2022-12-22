@@ -52,7 +52,7 @@
     "fs-extra": "^9.0.0",
     "graphql": "^15.0.0",
     "graphql-tools": "^6.0.17",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.15",
     "nest-raven": "^7.0.0",
     "normalize-url": "^5.0.0",
